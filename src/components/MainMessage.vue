@@ -9,6 +9,9 @@ export default {
 </script>
 
 <template>
+    <h2>
+        mainMessage
+    </h2>
  
 </template>
 
