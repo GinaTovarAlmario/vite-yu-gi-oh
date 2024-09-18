@@ -17,7 +17,7 @@ export default {
 <template>
     <div div class="col">
         <div class="card">
-            <img class="card-img" src="" alt="">
+            <img class="card-img" :src="cardObject.card_images[0].image_url" alt="..">
             <h4 class="card-name">
                 {{ cardObject.name }}
             </h4>
@@ -33,12 +33,19 @@ export default {
     width: calc(100% / 5 - 10px);
 
     .card{
-        height: 100px;
+        height: 350px;
         border: 1px solid black;
         background-color: #d48f3b;
+        overflow: hidden;
+        text-align: center;
 
         h4{
             color: white;
+            padding: 10px 0;
+        }
+        img{
+            width:100%;
+            height:auto;
         }
     }
 
