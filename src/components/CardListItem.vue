@@ -18,8 +18,11 @@ export default {
     <div div class="col">
         <div class="card">
             <img class="card-img" src="" alt="">
-            <p class="card-txt">
+            <h4 class="card-name">
                 {{ cardObject.name }}
+            </h4>
+            <p class="card-species">
+                {{ cardObject.archetype }}
             </p>
         </div>
     </div>
@@ -33,6 +36,10 @@ export default {
         height: 100px;
         border: 1px solid black;
         background-color: #d48f3b;
+
+        h4{
+            color: white;
+        }
     }
 
 
