@@ -14,7 +14,7 @@ export default {
             axios.get(this.apiUrl)
             .then((response) => {
                 console.log(response.data.data);
-                // this.cardList = response;
+                this.cardList = response.data.data;
             })
             .catch(function (error) {
                 console.log(error);
@@ -31,16 +31,21 @@ export default {
 </script>
 
 <template>
-    <section>
-        <div class="row">
-            <CardListItem/>
-        </div>
-    </section>
+    <div class="container">
+        <section>
+            <div class="row">
+                <CardListItem v-for="cardItem in cardList" :key="cardItem.id"
+                    :cardObject="cardItem"
+                />
+            </div>
+        </section>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 section{
-    background-color: magenta;
+    background-color: white;
+    padding: 50px;
 
     .row{
         display: flex;

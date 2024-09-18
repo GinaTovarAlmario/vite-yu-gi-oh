@@ -4,15 +4,23 @@ export default {
         return{
             
         }
+    },
+    props:{
+        cardObject:{
+            type: Object,
+            required:true,
+        }
     }
 }
 </script>
 
 <template>
-    <div div class="col" v-for="n in 15">
+    <div div class="col">
         <div class="card">
             <img class="card-img" src="" alt="">
-            <p class="card-txt">text</p>
+            <p class="card-txt">
+                {{ cardObject.name }}
+            </p>
         </div>
     </div>
 </template>
@@ -24,7 +32,7 @@ export default {
     .card{
         height: 100px;
         border: 1px solid black;
-        background-color: cyan;
+        background-color: #d48f3b;
     }
 
 
