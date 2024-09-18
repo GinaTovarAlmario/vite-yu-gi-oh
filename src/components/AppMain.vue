@@ -16,10 +16,7 @@ export default {
 
 <template>
     <main>
-        <h2>
-        main
-        </h2>
-        <MainMessage />
+        <MainMessage/>
         <CardList/>
     </main>
  

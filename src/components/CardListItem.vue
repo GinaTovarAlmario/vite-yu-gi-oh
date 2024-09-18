@@ -17,7 +17,7 @@ export default {
 <template>
     <div div class="col">
         <div class="card">
-            <img class="card-img" :src="cardObject.card_images[0].image_url" alt="..">
+            <img class="card-img" :src="cardObject.card_images[0].image_url" :alt="cardObject.name ">
             <h4 class="card-name">
                 {{ cardObject.name }}
             </h4>

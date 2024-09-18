@@ -1,11 +1,13 @@
 <script>
 import CardListItem from "./CardListItem.vue";
 import axios from 'axios';
+import {store} from "../store.js";
 export default {
     data(){
         return{
-            cardList:[],
+            // cardList:[],
             apiUrl:'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=30&offset=100',
+            store,
             
         }
     },
@@ -14,7 +16,7 @@ export default {
             axios.get(this.apiUrl)
             .then((response) => {
                 console.log(response.data.data);
-                this.cardList = response.data.data;
+                store.cardList = response.data.data;
             })
             .catch(function (error) {
                 console.log(error);
@@ -34,7 +36,7 @@ export default {
     <div class="container">
         <section>
             <div class="row">
-                <CardListItem v-for="cardItem in cardList" :key="cardItem.id"
+                <CardListItem v-for="cardItem in store.cardList" :key="cardItem.id"
                     :cardObject="cardItem"
                 />
             </div>
