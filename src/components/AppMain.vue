@@ -4,12 +4,12 @@ import CardList from "./Cardlist.vue";
 export default {
     data(){
         return{
-            
+            loaded: false,
         }
     },
     components:{
         MainMessage,
-        CardList
+        CardList,
     }
 }
 </script>
