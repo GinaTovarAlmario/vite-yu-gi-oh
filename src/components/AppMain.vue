@@ -11,6 +11,7 @@ export default {
             cardList:[],
             apiUrl:'https://db.ygoprodeck.com/api/v7/cardinfo.php',
             loaded: false,
+            apiUrlArchetype:'https://db.ygoprodeck.com/api/v7/archetypes.php',
         }
     },
     methods:{
@@ -30,6 +31,20 @@ export default {
                 console.log(error);
              });
         },
+        getCardsArchetypes(){
+            axios.get(apiUrlArchetype)
+            .then((response) => {
+                console.log(response.data.data);
+                this.cardList = response.data.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+             });
+        },
+        parentInfoLog(){
+            console.log('evento info-log è dal padre');
+
+        },
 
     },
     components:{
@@ -46,7 +61,10 @@ export default {
 
 <template>
     <main>
-        <AppMainSelect :cards="cardList"/>
+        <!-- mi aspetto un evento personalizzato da AppMainselect -->
+        <AppMainSelect :cards="cardList"
+        @info-log="parentInfoLog"
+        />
         <MainMessage :cards="cardList"/>
         <MainLoader v-if="!loaded"/>
         <CardList :cards="cardList" v-else/>

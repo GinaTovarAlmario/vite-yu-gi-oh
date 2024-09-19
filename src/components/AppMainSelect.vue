@@ -10,13 +10,22 @@ export default{
             type: Array,
             required:true,
         }
+    },
+    methods:{
+        logInfoCard(){
+            console.log('sono il figlio');
+            this.$emit('info-log');
+
+        }
     }
 }
 </script>
 
 <template>
     <div class="selection-type">
-        <select name="archetype" id="archetype" >
+        <select name="archetype" id="archetype"
+        @click="$emit('info-log')"
+        >
             <option v-for="cardItem in cards" :key="cardItem.id">
                 {{ cardItem.archetype }}
             </option>
