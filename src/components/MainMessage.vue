@@ -1,19 +1,23 @@
 <script>
-import {store} from "../store.js";
 export default {
     data(){
         return{
-            store,
             
         }
-    }
+    },
+    props:{
+        cards:{
+            type:Array,
+            required:true
+        }
+    },
 }
 </script>
 
 <template>
     <section class="container">
         <div class="message">
-            <p>Found {{store.cardList.length}} cards</p>
+            <p>Found {{cards.length}} cards</p>
         </div>
     </section>
 </template>

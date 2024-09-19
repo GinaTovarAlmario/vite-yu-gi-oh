@@ -2,11 +2,11 @@
 export default {
     data(){
         return{
-            
+        
         }
     },
     props:{
-        cardObject:{
+        card:{
             type: Object,
             required:true,
         }
@@ -17,12 +17,12 @@ export default {
 <template>
     <div div class="col">
         <div class="card">
-            <img class="card-img" :src="cardObject.card_images[0].image_url" :alt="cardObject.name ">
+            <img class="card-img" :src="card.card_images[0].image_url" :alt="card.name ">
             <h4 class="card-name">
-                {{ cardObject.name }}
+                {{ card.name }}
             </h4>
             <p class="card-species">
-                {{ cardObject.archetype }}
+                {{ card.archetype }}
             </p>
         </div>
     </div>
