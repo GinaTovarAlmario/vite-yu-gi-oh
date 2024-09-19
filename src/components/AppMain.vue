@@ -1,8 +1,9 @@
 <script>
 import MainMessage from "./MainMessage.vue";
-import CardList from "./Cardlist.vue";
+import CardList from "./CardList.vue";
 import MainLoader from "./MainLoader.vue";
 import axios from 'axios';
+import AppMainSelect from "./AppMainSelect.vue";
 
 export default {
     data(){
@@ -35,6 +36,7 @@ export default {
         MainMessage,
         CardList,
         MainLoader,
+        AppMainSelect
     },
     created(){
         setTimeout(this.getCards,1000);
@@ -44,6 +46,7 @@ export default {
 
 <template>
     <main>
+        <AppMainSelect :cards="cardList"/>
         <MainMessage :cards="cardList"/>
         <MainLoader v-if="!loaded"/>
         <CardList :cards="cardList" v-else/>

@@ -32,7 +32,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 20px;
+    padding-left: 50px;
 }
 
 </style>
