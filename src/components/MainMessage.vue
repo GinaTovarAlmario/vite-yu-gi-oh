@@ -17,7 +17,7 @@ export default {
 <template>
     <section class="container">
         <div class="message">
-            <p>Found {{cards.length}} cards</p>
+            <p>Found {{cards?.length}} cards</p>
         </div>
     </section>
 </template>

@@ -9,15 +9,13 @@ export default{
         cards:{
             type: Array,
             required:true,
+        },
+        itemArchetype:{
+            type:Array,
+            required:true,
         }
     },
-    methods:{
-        logInfoCard(){
-            console.log('sono il figlio');
-            this.$emit('info-log');
 
-        }
-    }
 }
 </script>
 
@@ -26,8 +24,8 @@ export default{
         <select name="archetype" id="archetype"
         @click="$emit('info-log')"
         >
-            <option v-for="cardItem in cards" :key="cardItem.id">
-                {{ cardItem.archetype }}
+            <option v-for="(singleArchetype,index) in itemArchetype" :key="index">
+                {{ singleArchetype.archetype_name }}
             </option>
         </select>
     </div>
