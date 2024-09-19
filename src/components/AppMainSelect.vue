@@ -15,15 +15,21 @@ export default{
             required:true,
         }
     },
+    methods:{
+        getInfoArchetype(){
+            this.$emit('info-log');
+        }
+    },
+    created(){
+        this.getInfoArchetype();
+    }
 
 }
 </script>
 
 <template>
     <div class="selection-type">
-        <select name="archetype" id="archetype"
-        @click="$emit('info-log')"
-        >
+        <select name="archetype" id="archetype">
             <option v-for="(singleArchetype,index) in itemArchetype" :key="index">
                 {{ singleArchetype.archetype_name }}
             </option>
