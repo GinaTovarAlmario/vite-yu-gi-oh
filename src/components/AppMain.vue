@@ -16,11 +16,13 @@ export default {
         }
     },
     methods:{
-        getCards(){
+        getCards(filterWord = null){
             axios.get(this.apiUrl,{
                 params:{
-                    num: 20,
-                    offset:50,
+                    num: 35,
+                    offset:0,
+                    archetype: filterWord,
+
                 }
             })
             .then((response) => {
@@ -43,6 +45,11 @@ export default {
                 console.log(error);
              });
         },
+         // un metodo in risposta alla chiamata fatta da appMainsearch
+         showInfoArchetype(information){
+            this.getCards(information);
+        }
+
     },
     components:{
         MainMessage,
@@ -62,6 +69,8 @@ export default {
         <AppMainSelect :cards="cardList"
         :itemArchetype ="listArchetype"
         @info-log="getCardsArchetypes"
+        @search-info ="showInfoArchetype"
+
         />
         <MainMessage :cards="cardList"/>
         <MainLoader v-if="!loaded"/>

@@ -2,6 +2,7 @@
 export default{
     data(){
         return{
+            selectedItem:'',
 
         }
     },
@@ -16,9 +17,14 @@ export default{
         }
     },
     methods:{
+        // un metodo per popolare la select
         getInfoArchetype(){
             this.$emit('info-log');
-        }
+        },
+        // un metodo per poter cercare questo specifico archetype
+        searchArchetype(word){
+            this.$emit('search-info',word);
+        },
     },
     created(){
         this.getInfoArchetype();
@@ -29,8 +35,9 @@ export default{
 
 <template>
     <div class="selection-type">
-        <select name="archetype" id="archetype">
-            <option v-for="(singleArchetype,index) in itemArchetype" :key="index">
+        <select name="archetype" id="archetype" v-model="selectedItem" @change="searchArchetype(selectedItem)" >
+            <option v-for="(singleArchetype,index) in itemArchetype"
+            :key="index" :value="singleArchetype.archetype_name">
                 {{ singleArchetype.archetype_name }}
             </option>
         </select>
